@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Workshop</title>
+    <link rel="icon" href="pictures/Logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.28/build/spline-viewer.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="pictures/Logo.jpg" alt="Santa's Workshop" class="nav-logo">
+            </a>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="elves.html">Elves</a></li>
+                <li><a href="Gifts.html">Gifts</a></li>
+                <li><a href="checker.html">List Checker</a></li>
+                <li><a href="contact.html">Contact Santa</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <h1 id="home">🎅 Santa's Workshop</h1>
+        <p>Where magic gifts are made</p>
+
+    </header>
+
+    <div class="spline-container">
+        <spline-viewer url="https://prod.spline.design/1tuy5jhLDmdvJdTE/scene.splinecode"></spline-viewer>
+    </div>
+
+    <section id="about" class="about-section">
+        <h2>About the Workshop</h2>
+        <p>Santa’s Workshop is the magical place where holiday dreams come to life. Tucked away at the North Pole, it’s where Santa and his hardworking elves design, build, and wrap toys for children all around the world. The workshop is filled with creativity, teamwork, and festive cheer all year long, making sure everything is ready for Christmas Eve. From toy-making stations to wrapping rooms, Santa’s Workshop is the heart of Christmas magic. 🎄✨</p>
+    </section>
+
+    <section class="tour-section">
+        <h2>🏭 Virtual Workshop Tour</h2>
+        <p data-aos="fade-right">Explore the different rooms of our magical workshop:</p>
+        <div class="tour-links">
+            <a href="Gifts.html" class="tour-card">🧸 Gifts Room</a>
+            <a href="elves.html" class="tour-card">🧝 Elf Quarters</a>
+            <a href="checker.html" class="tour-card">📜 Naughty/Nice List</a>
+        </div>
+    </section>
+
+    <section id="elves" class="elves-section">
+        <h2>Meet the Elves</h2>
+        <div class="elf-card">
+            <img src="pictures/Jingle.webp" alt="Jingle">
+            <h3>Jingle</h3>
+            <p>Toy Maker</p>
+        </div>
+        <div class="elf-card">
+            <img src="pictures/Jolly.jpg" alt="Jolly">
+            <h3>Jolly</h3>
+            <p>Gift Wrapper</p>
+        </div>
+        <div class="elf-card">
+            <img src="pictures/Merry.jpg" alt="Merry">
+            <h3>Merry</h3>
+            <p>Quality Checker</p>
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2>📰 North Pole News</h2>
+        <div class="news-grid">
+            <article class="news-article">
+                <h3>🦌 Reindeer Practice</h3>
+                <p>Rudolph leads the team in foggy weather training to ensure a safe flight this Christmas Eve.</p>
+            </article>
+            <article class="news-article">
+                <h3>🍪 Cookie Production</h3>
+                <p>Mrs. Claus has ramped up production of her famous chocolate chip cookies for the elves!</p>
+            </article>
+            <article class="news-article">
+                <h3>❄️ Snow Forecast</h3>
+                <p>Heavy snowfall expected at the North Pole, perfect for sleigh testing!</p>
+            </article>
+        </div>
+    </section>
+
+    <section id="toys" class="toys-section">
+        <h2>Gift Inventory</h2>
+        <ul>
+            <li>
+                <img src="pictures/TedyBear.jpg" alt="Teddy Bear">
+                <h3>Teddy Bear</h3>
+            </li>
+            <li>
+                <img src="pictures/Train.jpg" alt="Toy Train">
+                <h3>Toy Train</h3>
+            </li>
+            <li>
+                <img src="pictures/Dolls.webp" alt="Doll">
+                <h3>Doll</h3>
+            </li>
+            <li>
+                <img src="pictures/Candy-cane.jpg" alt="Candy Cane">
+                <h3>Candy Cane</h3>
+            </li>
+        </ul>
+    </section>
+
+    <div class="delivery-container">
+        <button class="deliver-btn">🎁 Deliver Gifts</button>
+    </div>
+
+    <footer id="contact" class="site-footer">
+        <h2>Wishing you a magical day! ✨</h2>
+        <p>Don't forget to send us your gift list!</p>
+        <p>&copy; 2026 Santa's Workshop. All rights reserved.</p>
+    </footer>
+
+    <div class="snowflakes" aria-hidden="true">
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+<div class="snowflake">❆</div>
+<div class="snowflake">❅</div>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="Music/Wham! - Last Christmas (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="music-btn" class="music-btn">🔇</button>
+
+    <button id="scrollToTopBtn" class="scroll-top-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 7.828V20h-2V7.828l-5.364 5.364-1.414-1.414L12 4l7.778 7.778-1.414 1.414L13 7.828z"/>
+        </svg>
+    </button>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="script.js">
+        
+    </script>
+    
+</body>
+</html>

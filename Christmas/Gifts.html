@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Workshop - Toys</title>
+    <link rel="icon" href="pictures/Logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .wishlist-btn-float { position: fixed; bottom: 80px; right: 20px; background: #d42426; color: white; border: none; padding: 15px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; box-shadow: 0 4px 10px rgba(0,0,0,0.3); z-index: 1000; }
+        .wishlist-modal { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background-color: #fff; background-image: radial-gradient(#d42426 1.5px, transparent 1.5px), radial-gradient(#165b33 1.5px, transparent 1.5px); background-size: 20px 20px; background-position: 0 0, 10px 10px; padding: 25px; border-radius: 20px; border: 4px solid #d42426; box-shadow: 0 10px 30px rgba(0,0,0,0.5); z-index: 1001; width: 320px; text-align: center; }
+        .add-wish-btn { background: #2ecc71; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; margin-top: 5px; }
+        .add-wish-btn:hover { background: #27ae60; }
+        .close-modal-btn { margin-top: 15px; background: #d42426; color: white; border: none; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold; font-family: inherit; }
+        .close-modal-btn:hover { background: #b91e20; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="main-header" style="padding: 40px 20px; min-height: auto;">
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="pictures/Logo.jpg" alt="Santa's Workshop" class="nav-logo">
+            </a>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="elves.html">Elves</a></li>
+                <li><a href="Gifts.html">Gifts</a></li>
+                <li><a href="checker.html">List Checker</a></li>
+                <li><a href="contact.html">Contact Santa</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <h1>Toy Inventory</h1>
+    </header>
+
+    <section class="gift-finder">
+        <h2>🎁 Find the Perfect Gift</h2>
+        <div class="filter-controls">
+            <select id="categorySelect" class="filter-select">
+                <option value="all">All Categories</option>
+                <option value="plush">Plush Toys 🧸</option>
+                <option value="educational">Educational 🧠</option>
+                <option value="outdoor">Outdoor Fun 🚲</option>
+                <option value="treats">Sweet Treats 🍬</option>
+            </select>
+            <select id="ageSelect" class="filter-select">
+                <option value="all">All Ages</option>
+                <option value="0-3">Toddlers (0-3)</option>
+                <option value="3-7">Kids (3-7)</option>
+                <option value="7+">Big Kids (7+)</option>
+            </select>
+            <button id="filterBtn" class="filter-btn">Search Gifts</button>
+        </div>
+    </section>
+
+    <section class="toys-section">
+        <ul id="toysList">
+            <li data-category="plush" data-age="0-3">
+                <img src="pictures/TedyBear.jpg" alt="Teddy Bear">
+                <h3>Teddy Bear</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Soft, cuddly, and perfect for hugs. Made with magic cotton.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Plush</span>
+                        <span class="toy-badge">Age: 0-3</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Teddy Bear')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="educational" data-age="3-7">
+                <img src="pictures/Train.jpg" alt="Toy Train">
+                <h3>Toy Train</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Classic wooden train set. Helps develop motor skills.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Educational</span>
+                        <span class="toy-badge">Age: 3-7</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐☆</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Toy Train')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="plush" data-age="3-7">
+                <img src="pictures/Dolls.webp" alt="Doll">
+                <h3>Doll</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">A best friend for tea parties and adventures.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Plush</span>
+                        <span class="toy-badge">Age: 3-7</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Doll')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="treats" data-age="all">
+                <img src="pictures/Candy-cane.jpg" alt="Candy Cane">
+                <h3>Candy Cane</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Sweet peppermint treat straight from Mrs. Claus's kitchen.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Treats</span>
+                        <span class="toy-badge">Age: All</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Candy Cane')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            
+            <li data-category="educational" data-age="3-7">
+                <img src="pictures/magicbox.webp" alt="Building Blocks">
+                <h3>Magic Blocks</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Colorful blocks that glow when stacked together.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Educational</span>
+                        <span class="toy-badge">Age: 3-7</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Magic Blocks')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="outdoor" data-age="7+">
+                <img src="pictures/Bike.jpg"Bicycle">
+                <h3>Bike</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">A shiny red bicycle with a bell that sounds like sleigh bells.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Outdoor</span>
+                        <span class="toy-badge">Age: 7+</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Bike')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="treats" data-age="all">
+                <img src="pictures/Gingerbread Man.jpg"Gingerbread Man">
+                <h3>Gingerbread Man</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Delicious cookie that almost runs away!</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Treats</span>
+                        <span class="toy-badge">Age: All</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐☆</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Gingerbread Man')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="plush" data-age="0-3">
+                <img src="pictures/Baby Reindeer.jpg"Stuffed Reindeer">
+                <h3>Baby Reindeer</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">A soft plush reindeer with a shiny red nose.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Plush</span>
+                        <span class="toy-badge">Age: 0-3</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Baby Reindeer')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="educational" data-age="7+">
+                <img src="pictures/Elf Science Kit.webp" alt="Elf Science Kit">
+                <h3>Elf Science Kit</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Learn how to make fake snow and magic slime.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Educational</span>
+                        <span class="toy-badge">Age: 7+</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Elf Science Kit')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="outdoor" data-age="7+">
+                <img src="pictures/Super Sled.webp" alt="Snow Sled">
+                <h3>Super Sled</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">The fastest sled on the hill, approved by Rudolph.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Outdoor</span>
+                        <span class="toy-badge">Age: 7+</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Super Sled')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="educational" data-age="3-7">
+                <img src="pictures/Festive Puzzle.webp"alt="Christmas Puzzle">
+                <h3>Festive Puzzle</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">100-piece puzzle featuring Santa's workshop.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Educational</span>
+                        <span class="toy-badge">Age: 3-7</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐☆</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Festive Puzzle')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="treats" data-age="all">
+                <img src="pictures/Gold Coins.webp" alt="Chocolate Coins">
+                <h3>Gold Coins</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">Bag of milk chocolate coins wrapped in gold foil.</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Treats</span>
+                        <span class="toy-badge">Age: All</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐⭐</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Gold Coins')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+            <li data-category="outdoor" data-age="3-7">
+                <img src="pictures/Magic Ball.webp" alt="Bouncy Ball">
+                <h3>Magic Ball</h3>
+                <div class="toy-details">
+                    <p class="toy-desc">A ball that never loses its bounce!</p>
+                    <div class="toy-meta">
+                        <span class="toy-badge">Outdoor</span>
+                        <span class="toy-badge">Age: 3-7</span>
+                    </div>
+                    <div class="star-rating">⭐⭐⭐⭐☆</div>
+                    <button class="add-wish-btn" onclick="addToWishlist('Magic Ball')">❤️ Add to Wishlist</button>
+                </div>
+            </li>
+        </ul>
+    </section>
+
+    <section class="how-made-section">
+        <h2>⚙️ How Toys Are Made</h2>
+        <div class="process-steps">
+            <div class="step">
+                <span class="step-icon">📝</span>
+                <h3>Design</h3>
+                <p>Elves sketch magical blueprints for every new toy idea.</p>
+            </div>
+            <div class="step">
+                <span class="step-icon">🔨</span>
+                <h3>Build</h3>
+                <p>Using stardust and wood, toys are crafted with care.</p>
+            </div>
+            <div class="step">
+                <span class="step-icon">🎁</span>
+                <h3>Wrap</h3>
+                <p>Wrapped in festive paper and tagged for delivery.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">How do I choose the right gift? <span>+</span></div>
+            <div class="faq-answer">Use our "Find the Perfect Gift" tool above! Select the age and category to see Santa's recommendations.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What if a toy is broken? <span>+</span></div>
+            <div class="faq-answer">Our elves offer a lifetime magic warranty. Just send a letter to the North Pole for a replacement!</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">Do you deliver to my house? <span>+</span></div>
+            <div class="faq-answer">Santa delivers to every house in the world on Christmas Eve, provided you are on the Nice List!</div>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top: 0;">
+        <h2>Wishing you a magical day! ✨</h2>
+        <p>Don't forget to send us your gift list!</p>
+        <p>&copy; 2026 Santa's Workshop. All rights reserved.</p>
+    </footer>
+
+    <button id="wishlistBtn" class="wishlist-btn-float" onclick="loadWishlist(); document.getElementById('wishlistModal').style.display='block'">📜</button>
+    <div id="wishlistModal" class="wishlist-modal">
+        <h3>Your Wishlist 🎁</h3>
+        <ul id="wishlistItems" style="list-style: none; padding: 0;"></ul>
+        <button onclick="document.getElementById('wishlistModal').style.display='none'" class="close-modal-btn">Close</button>
+    </div>
+
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source src="Music/Wham! - Last Christmas (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn" class="music-btn">🔇</button>
+    <button id="scrollToTopBtn" class="scroll-top-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 7.828V20h-2V7.828l-5.364 5.364-1.414-1.414L12 4l7.778 7.778-1.414 1.414L13 7.828z"/>
+        </svg>
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>

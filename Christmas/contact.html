@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santa's Workshop - Contact</title>
+    <link rel="icon" href="pictures/Logo.jpg">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header class="main-header" style="padding: 40px 20px; min-height: auto;">
+        <nav class="navbar">
+            <a href="index.html">
+                <img src="pictures/Logo.jpg" alt="Santa's Workshop" class="nav-logo">
+            </a>
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="elves.html">Elves</a></li>
+                <li><a href="Gifts.html">Gifts</a></li>
+                <li><a href="checker.html">List Checker</a></li>
+                <li><a href="contact.html">Contact Santa</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+        <h1>Contact Santa</h1>
+    </header>
+
+    <section class="about-section">
+        <h2>Send a Message</h2>
+        <form class="contact-form">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message to Santa" rows="4" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="success-container" class="success-container" style="display: none;">
+            <h3>Message Sent!</h3>
+            <p id="success-text"></p>
+            <div class="santa-tip">
+                <strong>🎅 Santa's Advice:</strong> <span id="santa-tip-text"></span>
+            </div>
+            <button onclick="location.reload()" class="reset-btn">Send Another Letter</button>
+        </div>
+    </section>
+
+    <footer class="site-footer" style="margin-top: 0;">
+        <h2>Wishing you a magical day! ✨</h2>
+        <p>Don't forget to send us your gift list!</p>
+        <p>&copy; 2026 Santa's Workshop. All rights reserved.</p>
+    </footer>
+
+    <div id="envelope" class="envelope">✉️</div>
+
+    <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div><div class="snowflake">❆</div>
+        <div class="snowflake">❅</div>
+    </div>
+    
+    <audio id="bg-music" loop>
+        <source src="Music/Wham! - Last Christmas (Lyrics).mp3" type="audio/mpeg">
+    </audio>
+    <button id="music-btn" class="music-btn">🔇</button>
+    <button id="scrollToTopBtn" class="scroll-top-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 7.828V20h-2V7.828l-5.364 5.364-1.414-1.414L12 4l7.778 7.778-1.414 1.414L13 7.828z"/>
+        </svg>
+    </button>
+    <script src="script.js"></script>
+</body>
+</html>
