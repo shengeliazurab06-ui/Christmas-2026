@@ -19,7 +19,7 @@ This is a multi-page website for Santa's Workshop. It has everything you need fo
 ## 🚀 How to Open the Site
 To see the website, make sure all project files are in the same folder. 
 
-Open the **`index.html`** file in any web browser. This is the main file that starts the website and automatically connects the design (CSS) and the logic (JavaScript).
+Open the **`index.html`** file in any web browser. This is the main file that starts the website and  connected with the design (CSS) and the logic (JavaScript).
 
 ---
 ✨ **Merry Christmas 2026!** ✨
